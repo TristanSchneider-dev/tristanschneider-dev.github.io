@@ -12,14 +12,24 @@
         /* Zusätzliche Anpassungen für mobile Ansicht */
         @media (max-width: 768px) {
             .card-body {
-                flex-direction: column; /* Stellt sicher, dass Inhalt in einer Spalte angezeigt wird */
+                flex-direction: column;
                 text-align: center;
             }
 
             .card-img-left, video {
-                width: 100%;
+                width: 100%; /* Volle Breite auf mobilen Geräten */
+                max-width: 350px; /* Maximale Breite begrenzen */
                 height: auto;
-                margin-right: 0;
+                margin: 0 auto 20px auto; /* Zentrieren und Abstand nach unten */
+            }
+        }
+
+        /* Desktop-Ansicht */
+        @media (min-width: 769px) {
+            .card-img-left, video {
+                width: 350px;
+                height: auto;
+                margin-right: 20px;
             }
         }
     </style>
@@ -47,7 +57,7 @@
             <div class="card mb-4">
                 <div class="card-body d-flex flex-column flex-sm-row align-items-center">
                     <!-- Video auf der linken Seite -->
-                    <video autoplay loop muted playsinline style="width: 100%; height: auto; margin-right: 20px;">
+                    <video autoplay loop muted playsinline>
                         <source src="assets/cubes.mp4" type="video/mp4">
                         Dein Browser unterstützt dieses Videoformat nicht.
                     </video>
@@ -66,7 +76,7 @@
             <div class="card mb-4">
                 <div class="card-body d-flex flex-column flex-sm-row align-items-center">
                     <!-- Bild auf der linken Seite -->
-                    <img class="card-img-left" src="assets/mandelbrot.gif" alt="Projektbild" style="width: 100%; height: auto; margin-right: 20px;" />
+                    <img class="card-img-left" src="assets/mandelbrot.gif" alt="Projektbild" style="width: 350px; height: auto; margin-right: 20px;" />
                     <!-- Text auf der rechten Seite -->
                     <div>
                         <div class="small text-muted">Q3 2024</div>
@@ -82,7 +92,7 @@
             <div class="card mb-4">
                 <div class="card-body d-flex flex-column flex-sm-row align-items-center">
                     <!-- Bild auf der linken Seite -->
-                    <img class="card-img-left" src="assets/guitar_fft.gif" alt="Projektbild" style="width: 100%; height: auto; margin-right: 20px;" />
+                    <img class="card-img-left" src="assets/guitar_fft.gif" alt="Projektbild" style="width: 350px; height: auto; margin-right: 20px;" />
                     <!-- Text auf der rechten Seite -->
                     <div>
                         <div class="small text-muted">Q3 2024</div>
