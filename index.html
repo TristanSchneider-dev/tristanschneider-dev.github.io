@@ -9,7 +9,14 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="css/styles.css" rel="stylesheet" />
     <style>
-        /* Zusätzliche Anpassungen für mobile Ansicht */
+        /* Grundlegende Stile für alle Bildschirmgrößen */
+        .card-img-left, video {
+            width: 350px; /* Standardbreite für Desktop */
+            height: auto;
+            margin-right: 20px;
+        }
+
+        /* Mobile Ansicht */
         @media (max-width: 768px) {
             .card-body {
                 flex-direction: column;
@@ -17,19 +24,9 @@
             }
 
             .card-img-left, video {
-                width: 100%; /* Volle Breite auf mobilen Geräten */
-                max-width: 350px; /* Maximale Breite begrenzen */
-                height: auto;
-                margin: 0 auto 20px auto; /* Zentrieren und Abstand nach unten */
-            }
-        }
-
-        /* Desktop-Ansicht */
-        @media (min-width: 769px) {
-            .card-img-left, video {
-                width: 350px;
-                height: auto;
-                margin-right: 20px;
+                width: 100%;
+                max-width: 350px;
+                margin: 0 auto 20px auto;
             }
         }
     </style>
