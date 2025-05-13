@@ -8,6 +8,21 @@
     <title>Tristan Schneider – Projekte & Portfolio</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="css/styles.css" rel="stylesheet" />
+    <style>
+        /* Zusätzliche Anpassungen für mobile Ansicht */
+        @media (max-width: 768px) {
+            .card-body {
+                flex-direction: column; /* Stellt sicher, dass Inhalt in einer Spalte angezeigt wird */
+                text-align: center;
+            }
+
+            .card-img-left, video {
+                width: 100%;
+                height: auto;
+                margin-right: 0;
+            }
+        }
+    </style>
 </head>
 <body>
 <!-- Navigation -->
@@ -20,7 +35,6 @@
             <h1 class="fw-bolder">Projektübersicht</h1>
             <p class="lead mb-0">Hier finden Sie eine Sammlung meiner aktuellen sowie früheren Softwareprojekte.</p>
         </div>
-
     </div>
 </header>
 
@@ -31,9 +45,9 @@
         <div class="col-lg-12">
             <!-- Main-Projekt -->
             <div class="card mb-4">
-                <div class="card-body d-flex align-items-center">
+                <div class="card-body d-flex flex-column flex-sm-row align-items-center">
                     <!-- Video auf der linken Seite -->
-                    <video autoplay loop muted playsinline style="max-width: 350px; height: auto; margin-right: 20px;">
+                    <video autoplay loop muted playsinline style="width: 100%; height: auto; margin-right: 20px;">
                         <source src="assets/cubes.mp4" type="video/mp4">
                         Dein Browser unterstützt dieses Videoformat nicht.
                     </video>
@@ -50,9 +64,9 @@
             </div>
 
             <div class="card mb-4">
-                <div class="card-body d-flex align-items-center">
+                <div class="card-body d-flex flex-column flex-sm-row align-items-center">
                     <!-- Bild auf der linken Seite -->
-                    <img class="card-img-left" src="assets/mandelbrot.gif" alt="Projektbild" style="max-width: 350px; height: auto; margin-right: 20px;" />
+                    <img class="card-img-left" src="assets/mandelbrot.gif" alt="Projektbild" style="width: 100%; height: auto; margin-right: 20px;" />
                     <!-- Text auf der rechten Seite -->
                     <div>
                         <div class="small text-muted">Q3 2024</div>
@@ -66,9 +80,9 @@
             </div>
 
             <div class="card mb-4">
-                <div class="card-body d-flex align-items-center">
+                <div class="card-body d-flex flex-column flex-sm-row align-items-center">
                     <!-- Bild auf der linken Seite -->
-                    <img class="card-img-left" src="assets/guitar_fft.gif" alt="Projektbild" style="max-width: 350px; height: auto; margin-right: 20px;" />
+                    <img class="card-img-left" src="assets/guitar_fft.gif" alt="Projektbild" style="width: 100%; height: auto; margin-right: 20px;" />
                     <!-- Text auf der rechten Seite -->
                     <div>
                         <div class="small text-muted">Q3 2024</div>
@@ -85,7 +99,7 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="card mb-4">
-                        <div class="card-body d-flex align-items-center">
+                        <div class="card-body d-flex flex-column flex-sm-row align-items-center">
                             <!-- Text auf der rechten Seite für VirusTotal Hash Checker -->
                             <div>
                                 <div class="small text-muted">Q4 2023</div>
@@ -101,7 +115,7 @@
 
                 <div class="col-lg-6">
                     <div class="card mb-4">
-                        <div class="card-body d-flex align-items-center">
+                        <div class="card-body d-flex flex-column flex-sm-row align-items-center">
                             <!-- Text auf der rechten Seite für Atmega328 Timer Calculator -->
                             <div>
                                 <div class="small text-muted">Q2 2023</div>
