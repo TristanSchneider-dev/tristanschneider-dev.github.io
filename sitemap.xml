@@ -3,21 +3,17 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-                        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
   <url>
     <loc>https://tristanschneider-dev.github.io/</loc>
-    <lastmod>2025-05-13T18:10:43+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
+    <lastmod>2025-05-15T17:23:43+00:00</lastmod>
   </url>
 
   <url>
     <loc>https://tristanschneider-dev.github.io/kontakt.html</loc>
-    <lastmod>2025-05-13T18:10:43+00:00</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2025-05-29T00:00:00+00:00</lastmod>
   </url>
 
 </urlset>
