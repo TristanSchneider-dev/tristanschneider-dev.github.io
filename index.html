@@ -11,9 +11,10 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     <link href="css/styles.css" rel="stylesheet" />
     <style>
-        .card-img-left, video {
+        .card-img-left, video, iframe {
             width: 350px;
             height: auto;
+            aspect-ratio: 16 / 9;
             margin-right: 20px;
         }
 
@@ -23,7 +24,7 @@
                 text-align: center;
             }
 
-            .card-img-left, video {
+            .card-img-left, video, iframe {
                 width: 100%;
                 max-width: 350px;
                 margin: 0 auto 20px auto;
@@ -46,6 +47,19 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-12">
+
+            <div class="card mb-4">
+                <div class="card-body d-flex flex-column flex-sm-row align-items-center">
+                    <iframe src="https://www.youtube-nocookie.com/embed/eEupJrGPFXA?si=-1QidhEYqixV_1gB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <div>
+                        <div class="small text-muted">WiSe 25/26</div>
+                        <h2 class="card-title">Projekt: Rendering the Red Pill</h2>
+                        <p class="card-text">
+                            Dieses Projekt ist im Rahmen des Computergraphik Praktikums im Wintersemester entstanden. Es demonstriert fortgeschrittene Rendering-Techniken.
+                        </p>
+                    </div>
+                </div>
+            </div>
 
             <div class="card mb-4">
                 <div class="card-body d-flex flex-column flex-sm-row align-items-center">
