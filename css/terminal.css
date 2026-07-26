@@ -1,0 +1,550 @@
+/*!
+ * Tristan Schneider - Homepage
+ * Theme: Terminal / Demoscene
+ * Monospace, Phosphorgruen, alles eckig.
+ */
+
+/* ============ FARBEN ============ */
+
+:root {
+    --bg: #05080a;
+    --bg-panel: rgba(18, 30, 24, 0.55);
+    --fg: #c6d6c9;
+    --muted: #6f8a78;
+    --green: #3ef58b;
+    --green-dim: #1f7a48;
+    --amber: #ffb454;
+    --mono: "JetBrains Mono", "Fira Code", "SF Mono", Menlo, Consolas, "DejaVu Sans Mono", "Courier New", monospace;
+}
+
+/* ============ GRUNDGERUEST ============ */
+
+html {
+    background-color: var(--bg);
+}
+
+body {
+    margin: 0;
+    padding: 24px 0 32px 0;
+    font-family: var(--mono);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--fg);
+    background-color: var(--bg);
+    /* leichter Phosphorschimmer in der Mitte */
+    background-image: radial-gradient(ellipse at 50% 0%, rgba(62, 245, 139, 0.07) 0%, rgba(62, 245, 139, 0) 65%);
+    background-attachment: fixed;
+}
+
+/* Scanlines wie auf einem Roehrenmonitor */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+    background-image: repeating-linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.22) 0 1px,
+        rgba(0, 0, 0, 0) 1px 3px
+    );
+}
+
+.wrapper {
+    width: 92%;
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+::selection {
+    background-color: var(--green);
+    color: #000000;
+}
+
+p {
+    margin: 10px 0;
+}
+
+a {
+    color: var(--green);
+    text-decoration: none;
+    border-bottom: 1px dotted var(--green-dim);
+}
+
+a:visited {
+    color: #8fd7ae;
+}
+
+a:hover {
+    background-color: var(--green);
+    color: #000000;
+    border-bottom-color: transparent;
+}
+
+/* ============ NAVIGATION ============ */
+
+.site-nav {
+    padding: 0 0 10px 0;
+    margin-bottom: 14px;
+    border-bottom: 1px solid var(--green-dim);
+}
+
+.site-nav .brand {
+    font-size: 15px;
+    margin-bottom: 12px;
+    color: var(--muted);
+}
+
+.site-nav .brand::before {
+    content: "tristan@siegen:~$ ";
+    color: var(--green-dim);
+}
+
+.site-nav .brand a {
+    color: var(--green);
+    font-weight: bold;
+    border: 0;
+}
+
+.site-nav .brand a:hover {
+    background-color: var(--green);
+    color: #000000;
+}
+
+.site-nav .brand::after {
+    content: "\258A";
+    color: var(--green);
+    animation: blinker 1.1s steps(2, start) infinite;
+}
+
+.site-nav a.nav-btn {
+    display: inline-block;
+    margin-right: 6px;
+    padding: 2px 4px;
+    font-size: 14px;
+    color: var(--fg);
+    text-decoration: none;
+    border: 0;
+}
+
+.site-nav a.nav-btn::before {
+    content: "[";
+    color: var(--green-dim);
+    margin-right: 4px;
+}
+
+.site-nav a.nav-btn::after {
+    content: "]";
+    color: var(--green-dim);
+    margin-left: 4px;
+}
+
+.site-nav a.nav-btn:hover {
+    background-color: var(--green);
+    color: #000000;
+}
+
+.site-nav a.nav-btn:hover::before,
+.site-nav a.nav-btn:hover::after {
+    color: #000000;
+}
+
+/* ============ SCROLLER (Demoscene-Gruesse) ============ */
+
+.banner {
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 6px 8px;
+    margin-bottom: 18px;
+    border: 1px solid var(--green-dim);
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: var(--amber);
+    background-color: rgba(255, 180, 84, 0.05);
+}
+
+.banner span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 24s linear infinite;
+}
+
+.banner:hover span {
+    animation-play-state: paused;
+}
+
+@keyframes scroll-left {
+    to { transform: translateX(-100%); }
+}
+
+/* ============ KOPFBEREICH ============ */
+
+.page-head {
+    padding: 18px 0 20px 0;
+    margin-bottom: 4px;
+}
+
+.page-head .title {
+    margin: 0 0 6px 0;
+    font-size: 34px;
+    font-weight: bold;
+    line-height: 1.15;
+    letter-spacing: -1px;
+    text-transform: lowercase;
+    color: var(--green);
+    text-shadow: 0 0 14px rgba(62, 245, 139, 0.45);
+}
+
+.page-head .title::before {
+    content: "./";
+    color: var(--green-dim);
+}
+
+.page-head .sub {
+    margin: 0;
+    font-size: 14px;
+    color: var(--muted);
+}
+
+.page-head .sub::before {
+    content: "# ";
+    color: var(--green-dim);
+}
+
+.start-sign {
+    margin-top: 16px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    color: var(--muted);
+}
+
+.start-sign::before {
+    content: "READY.";
+}
+
+.start-sign::after {
+    content: " \2588";
+    color: var(--green);
+    animation: blinker 1.1s steps(2, start) infinite;
+}
+
+.blink {
+    color: var(--amber);
+    animation: blinker 1.1s steps(2, start) infinite;
+}
+
+@keyframes blinker {
+    to { visibility: hidden; }
+}
+
+/* ============ TRENNER ============ */
+
+hr.divider {
+    height: 1px;
+    border: 0;
+    margin: 22px 0;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--green-dim) 0 10px,
+        transparent 10px 18px
+    );
+}
+
+/* ============ PROJEKTE ============ */
+
+.card {
+    padding: 16px;
+    margin-bottom: 18px;
+    border: 1px solid var(--green-dim);
+    background-color: var(--bg-panel);
+    transition: border-color 0.15s linear;
+}
+
+.card:hover {
+    border-color: var(--green);
+}
+
+.card-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.card .text {
+    flex: 1 1 300px;
+    min-width: 0;
+}
+
+.card h2 {
+    margin: 8px 0 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.35;
+    color: var(--green);
+}
+
+.card h2::before {
+    content: "$ ";
+    color: var(--green-dim);
+}
+
+.card .date {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 1px;
+    color: var(--amber);
+}
+
+.card .date::before {
+    content: "[";
+    color: var(--green-dim);
+}
+
+.card .date::after {
+    content: "]";
+    color: var(--green-dim);
+}
+
+.card p {
+    margin: 10px 0 16px 0;
+    color: var(--fg);
+}
+
+.card img,
+.card video,
+.card iframe {
+    width: 330px;
+    max-width: 100%;
+    flex-shrink: 0;
+    display: block;
+    border: 1px solid var(--green-dim);
+    background-color: #000000;
+}
+
+.card img,
+.card video {
+    height: auto;
+}
+
+.card iframe {
+    aspect-ratio: 16 / 9;
+}
+
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.card-grid .card {
+    flex: 1 1 320px;
+}
+
+/* ============ BUTTONS ============ */
+
+a.btn {
+    display: inline-block;
+    padding: 5px 12px;
+    font-family: var(--mono);
+    font-size: 13px;
+    color: var(--green);
+    text-decoration: none;
+    border: 1px solid var(--green-dim);
+    background-color: transparent;
+}
+
+a.btn:visited {
+    color: var(--green);
+}
+
+a.btn:hover {
+    background-color: var(--green);
+    border-color: var(--green);
+    color: #000000;
+}
+
+a.btn:active {
+    background-color: var(--green-dim);
+    border-color: var(--green-dim);
+    color: #000000;
+}
+
+/* ============ KONTAKTSEITE ============ */
+
+.contact {
+    padding: 18px;
+    border: 1px solid var(--green-dim);
+    background-color: var(--bg-panel);
+}
+
+.contact .inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 22px;
+    align-items: flex-start;
+}
+
+.contact .portrait {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 1px solid var(--green-dim);
+    /* Phosphor-Look, beim Ueberfahren wieder in Farbe */
+    filter: grayscale(1) contrast(1.1) sepia(1) hue-rotate(75deg) saturate(1.3);
+    transition: filter 0.2s linear;
+}
+
+.contact .portrait:hover {
+    filter: none;
+}
+
+.contact .info {
+    flex: 1 1 300px;
+    min-width: 0;
+}
+
+.contact h2 {
+    margin: 0 0 14px 0;
+    font-size: 20px;
+    color: var(--green);
+}
+
+.contact h2::before {
+    content: "$ whoami";
+    display: block;
+    font-size: 13px;
+    font-weight: normal;
+    color: var(--green-dim);
+    margin-bottom: 4px;
+}
+
+table.infotable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+}
+
+table.infotable td {
+    padding: 6px 12px 6px 0;
+    font-size: 14px;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(31, 122, 72, 0.35);
+}
+
+table.infotable tr:last-child td {
+    border-bottom: 0;
+}
+
+table.infotable td.label {
+    font-size: 13px;
+    color: var(--amber);
+    white-space: nowrap;
+}
+
+table.infotable td.label::after {
+    content: ":";
+    color: var(--green-dim);
+}
+
+.guestbook {
+    margin-top: 20px;
+    padding: 14px;
+    border: 1px dashed var(--green-dim);
+}
+
+.guestbook h3 {
+    margin: 0 0 6px 0;
+    font-size: 15px;
+    font-weight: bold;
+    color: var(--green);
+}
+
+.guestbook h3::before {
+    content: "## ";
+    color: var(--green-dim);
+}
+
+/* ============ FUSSBEREICH ============ */
+
+.page-foot {
+    margin-top: 26px;
+    padding-top: 14px;
+    border-top: 1px solid var(--green-dim);
+    font-size: 13px;
+    color: var(--muted);
+}
+
+.page-foot p {
+    margin: 5px 0;
+}
+
+/* "Du bist Besucher Nr." - der Zaehler beschriftet sich hier selbst */
+.page-foot p:first-child {
+    display: none;
+}
+
+.counter {
+    color: var(--green);
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.counter::before {
+    content: "visitors= ";
+    color: var(--muted);
+    letter-spacing: 0;
+}
+
+.badges {
+    margin-top: 14px;
+}
+
+.badge {
+    display: inline-block;
+    margin: 4px 6px 0 0;
+    padding: 2px 8px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--green-dim);
+    border: 1px solid rgba(31, 122, 72, 0.5);
+}
+
+.badge-1::before { content: "100% STATIC"; }
+.badge-2::before { content: "NO TRACKING"; }
+.badge-3::before { content: "HANDCODED"; }
+.badge-4::before { content: "UTF-8"; }
+
+/* ============ KLEINE BILDSCHIRME ============ */
+
+@media (max-width: 640px) {
+    .page-head .title {
+        font-size: 26px;
+    }
+
+    .card-inner,
+    .contact .inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .card img,
+    .card video,
+    .card iframe {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .blink,
+    .banner span,
+    .site-nav .brand::after,
+    .start-sign::after {
+        animation: none;
+    }
+
+    .banner span {
+        padding-left: 0;
+    }
+}
