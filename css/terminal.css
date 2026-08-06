@@ -250,7 +250,7 @@ hr.divider {
     );
 }
 
-/* ============ PROJEKTE ============ */
+/* ============ PROJECTS ============ */
 
 .card {
     padding: 16px;
@@ -370,7 +370,7 @@ a.btn:active {
     color: #000000;
 }
 
-/* ============ KONTAKTSEITE ============ */
+/* ============ CONTACT PAGE ============ */
 
 .contact {
     padding: 18px;
@@ -480,7 +480,7 @@ table.infotable td.label::after {
     margin: 5px 0;
 }
 
-/* "Du bist Besucher Nr." - der Zaehler beschriftet sich hier selbst */
+/* "You are visitor no." - the counter labels itself here */
 .page-foot p:first-child {
     display: none;
 }

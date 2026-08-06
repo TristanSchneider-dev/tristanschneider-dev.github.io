@@ -1,4 +1,4 @@
-// Laedt Navigationsleiste und Fussbereich und startet den Besucherzaehler.
+// Loads the navigation bar and footer and starts the visitor counter.
 
 function include(placeholderId, file) {
     return fetch(file)
@@ -11,7 +11,7 @@ function include(placeholderId, file) {
         });
 }
 
-// Klassischer Hit-Counter: zaehlt die Besuche in diesem Browser hoch.
+// Classic hit counter: counts up visits in this browser.
 function startCounter() {
     const display = document.getElementById("hitcounter");
     if (!display) {
@@ -25,7 +25,7 @@ function startCounter() {
     hits += 1;
     localStorage.setItem("hits", String(hits));
 
-    // Grundstock, damit die Seite nicht ganz so verlassen wirkt
+    // Base value so the page doesn't feel too deserted
     const total = 13337 + hits;
     display.textContent = String(total).padStart(7, "0");
 }
