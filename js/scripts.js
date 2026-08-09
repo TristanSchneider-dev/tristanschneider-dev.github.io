@@ -40,8 +40,77 @@ function showLastModified() {
     target.textContent = pad(date.getDate()) + "." + pad(date.getMonth() + 1) + "." + date.getFullYear();
 }
 
+// Easter egg: click the hidden white rabbit for a digital rain effect.
+function initWhiteRabbit() {
+    const rabbit = document.getElementById("white-rabbit");
+    if (!rabbit) {
+        return;
+    }
+    rabbit.addEventListener("click", triggerDigitalRain);
+}
+
+function triggerDigitalRain() {
+    if (document.getElementById("digital-rain-overlay")) {
+        return;
+    }
+
+    const overlay = document.createElement("div");
+    overlay.id = "digital-rain-overlay";
+    const canvas = document.createElement("canvas");
+    overlay.appendChild(canvas);
+    document.body.appendChild(overlay);
+
+    const ctx = canvas.getContext("2d");
+    const fontSize = 16;
+    let columns;
+    let drops;
+
+    function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        columns = Math.floor(canvas.width / fontSize);
+        drops = new Array(columns).fill(1);
+    }
+    resize();
+    window.addEventListener("resize", resize);
+
+    const chars = "アイウエオカキクケコサシスセソタチツテトナニヌネノ0123456789";
+
+    function draw() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.08)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "#3ef58b";
+        ctx.font = fontSize + "px monospace";
+        for (let i = 0; i < drops.length; i++) {
+            const char = chars[Math.floor(Math.random() * chars.length)];
+            ctx.fillText(char, i * fontSize, drops[i] * fontSize);
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                drops[i] = 0;
+            }
+            drops[i]++;
+        }
+    }
+
+    const interval = setInterval(draw, 40);
+    requestAnimationFrame(() => overlay.classList.add("active"));
+
+    function stop() {
+        clearInterval(interval);
+        window.removeEventListener("resize", resize);
+        overlay.removeEventListener("click", stop);
+        window.removeEventListener("keydown", stop);
+        overlay.classList.remove("active");
+        setTimeout(() => overlay.remove(), 400);
+    }
+
+    overlay.addEventListener("click", stop);
+    window.addEventListener("keydown", stop);
+    setTimeout(stop, 6000);
+}
+
 include("navbar-placeholder", "navbar.html");
 include("footer-placeholder", "footer.html").then(() => {
     startCounter();
     showLastModified();
+    initWhiteRabbit();
 });

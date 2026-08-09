@@ -548,3 +548,40 @@ table.infotable td.label::after {
         padding-left: 0;
     }
 }
+
+/* ============ WHITE RABBIT ============ */
+
+.white-rabbit {
+    display: inline-block;
+    margin-left: 0.6rem;
+    opacity: 0.1;
+    filter: grayscale(1) brightness(1.6);
+    cursor: pointer;
+    user-select: none;
+    transition: opacity 0.3s ease;
+}
+
+.white-rabbit:hover {
+    opacity: 0.4;
+}
+
+#digital-rain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+#digital-rain-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+#digital-rain-overlay canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
